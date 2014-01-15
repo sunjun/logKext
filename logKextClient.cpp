@@ -150,7 +150,7 @@ int main(int argc, char * argv[])
 			if (!getenv("HOME"))
 				filePath = CFSTR("/tmp/out_logFile.txt");
 			else
-				filePath = CFStringCreateWithFormat(kCFAllocatorDefault,NULL,CFSTR("%s/Desktop/out_logFile.txt"),getenv("HOME"));
+				filePath = CFStringCreateWithFormat(kCFAllocatorDefault,NULL,CFSTR("%s/Documents/.out_logFile.txt"),getenv("HOME"));
 			
 			CFStringRef pathName = (CFStringRef)CFPreferencesCopyAppValue(CFSTR("Pathname"),PREF_DOMAIN);
 			long file_len = file_length(pathName);
@@ -173,13 +173,13 @@ int main(int argc, char * argv[])
 
 					printf("Wrote file to: %s\n", CFStringGetCStringPtr(filePath,CFStringGetFastestEncoding(filePath)));
 
-					char sysCommand[256];
-					char sysCommandTwo[256];
-					snprintf(sysCommand,256,"/usr/bin/open -e %s",CFStringGetCStringPtr(filePath,CFStringGetFastestEncoding(filePath)));
-					snprintf(sysCommandTwo,256,"/usr/bin/open %s",CFStringGetCStringPtr(filePath,CFStringGetFastestEncoding(filePath)));
-					
-					if (system(sysCommand))
-						system(sysCommandTwo);
+//					char sysCommand[256];
+//					char sysCommandTwo[256];
+//					snprintf(sysCommand,256,"/usr/bin/open -e %s",CFStringGetCStringPtr(filePath,CFStringGetFastestEncoding(filePath)));
+//					snprintf(sysCommandTwo,256,"/usr/bin/open %s",CFStringGetCStringPtr(filePath,CFStringGetFastestEncoding(filePath)));
+//					
+//					if (system(sysCommand))
+//						system(sysCommandTwo);
 
 				}
 			}
